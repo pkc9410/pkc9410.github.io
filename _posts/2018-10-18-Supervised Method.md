@@ -24,4 +24,8 @@ tags: Dimensionality_Reduction
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*ZuFOzQawXnw_CUnVpRDLgA.png)
 
-이러한 현상은 왜 발생하는 것일까요?
+이러한 현상이 발생하는 이유는 2가지 입니다.
+
+1) 계산량 증가
+
+2) 데이터 공간의 증가
