@@ -2,7 +2,7 @@
 
 title: Supervised Method
 key: 20181017
-tags: Dimensionality Reduction
+tags: Dimensionality_Reduction
 
 ---
 
