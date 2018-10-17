@@ -25,8 +25,3 @@ tags: Dimensionality Reduction
 ![img](https://cdn-images-1.medium.com/max/1600/1*ZuFOzQawXnw_CUnVpRDLgA.png)
 
 이러한 현상은 왜 발생하는 것일까요?
-
-아래 그림을 통해 우리는 이에 대해 직관적으로 이해할 수 있습니다.
-
-![1539787416488](C:\Users\pkc\AppData\Roaming\Typora\typora-user-images\1539787416488.png)
-
