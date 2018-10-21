@@ -27,6 +27,7 @@ tags: Dimensionality_Reduction
 이제부터는 본격적으로 각 Method에 대하여 알아보도록 하겠습니다.
 
 
+
 **Forward Selection**
 
 다음 그림은 Forward Selection의 절차입니다.
@@ -50,6 +51,8 @@ tags: Dimensionality_Reduction
 이론적으로 이 알고리즘의 최대 계산량은 **N(N+1)/2**입니다.
 
 
+
+
 **Backward Elimination**
 
 다음 그림은 Backward Elimination의 절차입니다.
@@ -65,6 +68,7 @@ tags: Dimensionality_Reduction
 **2) 성능이 증가하다가 변수를 제거하여도 더 이상 성능이 증가하지 않음**
 
 이 알고리즘도 이론적으로 최대 계산량은 **N(N+1)/2**입니다.
+
 
 
 **Stepwise Selection**
@@ -99,6 +103,7 @@ tags: Dimensionality_Reduction
 이제 각 단계별로 자세히 알아보도록 하겠습니다.
 
 
+
 **1) 파라미터 설정 및 염색체 초기화**
 
 GA를 실행하기 위해서는 가장 먼저 아래의 Parameter값에 대하여 설정해주어야 합니다.
@@ -120,14 +125,20 @@ crossover와 muation의 개념은 뒤에서 자세히 설명하오니 당황하�
 일반적으로 50:50의 비율로 random하게 0과 1을 할당하여 초기화를 한다고 합니다.
 
 
+
+
 **2) 각 염색체 선택 변수별 모델학습**
 
 이 단계에서는 각 염색체 선택 변수별 모델을 학습하게 됩니다.
 
 
+
+
 **3)  각 염색체 적합도 평가**
 
 우리가 설정한 fitness function으로 각 염색체의 성능을 평가하는 단계입니다. 이 때 일반적으로 같은 성능을 가진 염색체의 경우 선택된 변수의 개수가 더 적은 염색체가 더 좋은 염색체라고 판단합니다.
+
+
 
 
 **4) 우수 염색체 선택**
@@ -150,6 +161,8 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 하지만 역시 이론적으로 증명된 부분이 아니기 때문에 어떤 데이터와 모델을 사용하느냐에 따라서 결과가 달라질 수 있음을 인지하고 계셔야 할 것입니다.
 
 
+
+
 **5) 다음 세대 염색체 생성**
 
 이제 우수 염색체 2개를 선택했으니 이 2개의 부모 염색체를 통해 2개의 자식 염색체를 생성해야 합니다. 자식 염색체는 crossover와 mutation의 과정을 거쳐 생성되게 됩니다. 차례대로 설명해보도록 하겠습니다.
@@ -169,7 +182,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     이렇게 crossover와 mutation이 끝나면 총 2개의 자식 염색체가 생성됩니다. 생성된 자식 염색체는 다음 세대의 구성원이 됩니다.
 
     단계 4)와 5)는 다음 세대의 population이 기존에 설정했던 population의 수를 모두 채워질때 까지 반복됩니다. 이 때 일반적으로 이전 세대에서 가장 성능이 좋았던 염색체는 보존하여 다음 세대로 포함시킨다고 합니다.
-
 
 
 **6) Stopping criteria 만족 O: 최종 변수 집합 선택 *or* Stopping criteria 만족 X: Step 2부터 다시 진행**
@@ -212,6 +224,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
 
     **BIC=n*ln(SSE/n)+2(k+2)no^2/SSE-2n^2o^4/SSE^2**
+
 
 
 **Empirical Study & Example in R**
