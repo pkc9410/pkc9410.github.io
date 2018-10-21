@@ -8,11 +8,7 @@ tags: Dimensionality_Reduction
 
 이 post는 고려대학교 산업경영공학과 DSBA연구실 강필성 교수님의 Business-Analytics강의를 바탕으로 작성되었습니다.
 
-오늘은 차원축소(Dimensionality Reduction)의 방법 중 한 갈래인 Supervised Method방법에 대해서 알아보도록 하겠습니다. 차원축소에 관한 기본적인 내용을 알고싶으신 분은
-
-[이곳]: https://pkc9410.github.io/2018/10/18/Dimensionality-Reduction.html	"이곳"
-
-을 클릭해주시면 감사하겠습니다.
+오늘은 차원축소(Dimensionality Reduction)의 방법 중 한 갈래인 Supervised Method방법에 대해서 알아보도록 하겠습니다. 차원축소에 관한 기본적인 내용을 알고싶으신 분은 여기[https://pkc9410.github.io/2018/10/18/Dimensionality-Reduction.html]를 클릭해주시면 감사하겠습니다.
 
 오늘 소개해드릴 차원축소의 Supervised Method는 바로 **Forward Selection**, **Backward Elimination**, **Stepwise Selection**, 그리고 **Genetic Algorithm**입니다.  
 
@@ -48,8 +44,6 @@ tags: Dimensionality_Reduction
 
 일반적으로 기준 2)가 가장 많이 쓰이지만 답이 정해져있지 않은 부분으로 실무자의 판단에 따라서 얼마든지 바뀔 수 있습니다.
 
-
-
 이론적으로 이 알고리즘의 최대 계산량은 **N(N+1)/2**입니다.
 
 
@@ -67,8 +61,6 @@ tags: Dimensionality_Reduction
 **1) 성능이 기준 이하로 내려감**
 
 **2) 성능이 증가하다가 변수를 제거하여도 더 이상 성능이 증가하지 않음**
-
-
 
 이 알고리즘도 이론적으로 최대 계산량은 **N(N+1)/2**입니다.
 
@@ -89,8 +81,6 @@ tags: Dimensionality_Reduction
 **Genetic Algorithm**
 
 이 알고리즘은 "메타 휴리스틱"이라고 불리는 기법으로 염색체의 유전 과정을 모방하여 만들어진 기법입니다. GA는 오늘 소개하는 Method중 가장 계산량이 높지만 그만큼 효율적으로 더 많은 범위의 조합을 탐색할 수 있는 알고리즘입니다.
-
-
 
 이 알고리즘의 단계는 다음과 같습니다.
 
@@ -194,6 +184,8 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     단계 4)와 5)는 다음 세대의 population이 기존에 설정했던 population의 수를 모두 채워질때 까지 반복됩니다. 이 때 일반적으로 이전 세대에서 가장 성능이 좋았던 염색체는 보존하여 다음 세대로 포함시킨다고 합니다.
 
 
+
+
 **6) Stopping criteria 만족 O: 최종 변수 집합 선택 *or* Stopping criteria 만족 X: Step 2부터 다시 진행**
 
 다음 세대의 population이 구성되면 stopping criteria를 통해 최종 변수 집합을 선택할지 아니면 step2부터 다시 진행할지 결정하여야 합니다. stopping criteria는 보통 목표 성능을 만족하거나 일정 이상의 반복회수가 초과되는 것을 기준으로 합니다.  
@@ -213,8 +205,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 **Performance Metrics**
 
 지금까지 차원축소에 관한 4가지 기법을 학습하였습니다. 4가지 기법 모두 변수를 선택하기 위하여 각 조합에 대한 모델의 performance를 구하는 과정이 있습니다. 이제부터는 모델의 performace를 구하기 위한 지표에는 어떤 것들이 있는지 살펴보도록 하겠습니다.
-
-
 
   - **Adjusted R^2**
 
@@ -239,8 +229,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
 
     **BIC=n*ln(SSE/n)+2(k+2)no^2/SSE-2n^2o^4/SSE^2**
-
-
 
 
 
