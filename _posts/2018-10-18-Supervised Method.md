@@ -8,9 +8,13 @@ tags: Dimensionality_Reduction
 
 이 post는 고려대학교 산업경영공학과 DSBA연구실 강필성 교수님의 Business-Analytics강의를 바탕으로 작성되었습니다.
 
-오늘은 차원축소(Dimensionality Reduction)의 방법 중 한 갈래인 Supervised Method방법에 대해서 알아보도록 하겠습니다. 차원축소에 관한 기본적인 내용을 알고싶으신 분은 여기[https://pkc9410.github.io/2018/10/18/Dimensionality-Reduction.html]를 클릭해주시면 감사하겠습니다.
+오늘은 차원축소(Dimensionality Reduction)의 방법 중 한 갈래인 Supervised Method방법에 대해서 알아보도록 하겠습니다. 차원축소에 관한 기본적인 내용을 알고싶으신 분은 [여기](https://pkc9410.github.io/2018/10/18/Dimensionality-Reduction.html)를 클릭해주시면 감사하겠습니다.
 
-오늘 소개해드릴 차원축소의 Supervised Method는 바로 **Forward Selection**, **Backward Elimination**, **Stepwise Selection**, 그리고 **Genetic Algorithm**입니다.  
+
+
+오늘 소개해드릴 차원축소의 Supervised Method는 바로 **Forward Selection**, **Backward Elimination**, **Stepwise Selection**, 그리고 **Genetic Algorithm**입니다.
+
+  
 
 위의 방법론들을 소개하기에 앞서 Exhaustive Search라는 방법론을 소개해드리겠습니다. 거창하게 말했지만 사실 이 방법론은 단순히 가능한 모든 독립변수의 조합을 전부 탐색해보는 방법을 말합니다. 따라서 변수의 개수가 N개라면 총 2^N-1의 조합을 탐색해야 합니다. 
 
@@ -138,16 +142,12 @@ crossover와 muation의 개념은 뒤에서 자세히 설명하오니 당황하�
 
 이제 다음 세대의 population을 구성하기 위해 우수 염색체를 선택하여야 합니다. 우수 염색체를 선택하는 방법에는 크게 2가지가 있습니다. 
 
-
-
   - **Deterministic selection**
     - 적합도 기준으로 상위 N%의 염색체 중에서 random하게 2개 선택
     - 하위 (100-N)%의 염색체는 절대로 선택되지 않음 
   - **Probailistic selection**
     - 적합도에 비례하여 염색체별로 가중치를 할당
     - 가중치에 비례한 확률로 2개의 염색체를 선택
-
-
 
 Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 것이 뛰어난지는 밝혀지지 않았습니다. 제 개인적인 의견으로는 Probabilistic한 방법이 좀 더 탐색영역이 넓어 성능이 좋을 것이라고 기대됩니다.
 
@@ -163,15 +163,11 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 이제 우수 염색체 2개를 선택했으니 이 2개의 부모 염색체를 통해 2개의 자식 염색체를 생성해야 합니다. 자식 염색체는 crossover와 mutation의 과정을 거쳐 생성되게 됩니다. 차례대로 설명해보도록 하겠습니다.
 
-
-
   - **Crossover**
 
     ![ê´ë ¨ ì´ë¯¸ì§](https://www.researchgate.net/profile/Junaid_Qadir/publication/268525551/figure/fig5/AS:295386582405135@1447437057836/Illustration-of-examples-of-one-point-two-points-and-uniform-crossover-methods-Adapted.png)
 
     crossover를 하기위해서는 crossover point를 지정해야 합니다. crossover point를 기준으로 부모 염색체 간 서로의 염색체를 교환할지 정하게 되기 때문입니다. 이 때 교환은 확률적으로 일어나며 보통 50% 확률로 교환이 일어나도록 설정한다고 합니다.
-
-
 
   - **Mutatuion**
 
@@ -208,7 +204,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
   - **Adjusted R^2**
 
-    simple R^2 = 1-SSE/SST = SSR/SST
+    **simple R^2 = 1-SSE/SST = SSR/SST**
     **Adjusted R^2 = 1-(n-1)/(n-k-1)*SSE/SST**
 
     기존의 R^2의 경우 독립변수의 개수가 증가하면 증가하는 함수이기 때문에 차원축소의 지표로 사용하기에는 부적절합니다. 그렇기 때문에 독립변수의 개수를 고려할 수 있도록 변형한 Adjusted R^2을 사용하는 것이 좋습니다.
