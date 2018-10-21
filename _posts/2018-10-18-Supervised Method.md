@@ -28,7 +28,7 @@ tags: Dimensionality_Reduction
 
 
 
-### **Forward Selection**
+### <span style="color:orange;">**Forward Selection**</span>
 
 다음 그림은 Forward Selection의 절차입니다.
 
@@ -52,7 +52,7 @@ tags: Dimensionality_Reduction
 
 
 
-### **Backward Elimination**
+### <span style="color:orange;">**Backward Elimination**</span>
 
 다음 그림은 Backward Elimination의 절차입니다.
 
@@ -70,7 +70,7 @@ tags: Dimensionality_Reduction
 
 
 
-### **Stepwise Selection**
+### <span style="color:orange;">**Stepwise Selection**</span>
 
 다음 그림은 Stepwise Selection에 대한 절차입니다.
 
@@ -82,7 +82,7 @@ tags: Dimensionality_Reduction
 
 
 
-### **Genetic Algorithm**
+### <span style="color:orange;">**Genetic Algorithm**</span>
 
 이 알고리즘은 "메타 휴리스틱"이라고 불리는 기법으로 염색체의 유전 과정을 모방하여 만들어진 기법입니다. GA는 오늘 소개하는 Method중 가장 계산량이 높지만 그만큼 효율적으로 더 많은 범위의 조합을 탐색할 수 있는 알고리즘입니다.
 
@@ -104,7 +104,7 @@ tags: Dimensionality_Reduction
 
 
 
-<u>**1) 파라미터 설정 및 염색체 초기화**</u>
+**1) 파라미터 설정 및 염색체 초기화**
 
 GA를 실행하기 위해서는 가장 먼저 아래의 Parameter값에 대하여 설정해주어야 합니다.
 
@@ -126,19 +126,19 @@ crossover와 muation의 개념은 뒤에서 자세히 설명하오니 당황하�
 
 
 
-<u>**2) 각 염색체 선택 변수별 모델학습**</u>
+**2) 각 염색체 선택 변수별 모델학습**
 
 이 단계에서는 각 염색체 선택 변수별 모델을 학습하게 됩니다.
 
 
 
-<u>**3)  각 염색체 적합도 평가**</u>
+**3)  각 염색체 적합도 평가**
 
 우리가 설정한 fitness function으로 각 염색체의 성능을 평가하는 단계입니다. 이 때 일반적으로 같은 성능을 가진 염색체의 경우 선택된 변수의 개수가 더 적은 염색체가 더 좋은 염색체라고 판단합니다.
 
 
 
-<u>**4) 우수 염색체 선택**</u>
+**4) 우수 염색체 선택**
 
 이제 다음 세대의 population을 구성하기 위해 우수 염색체를 선택하여야 합니다. 우수 염색체를 선택하는 방법에는 크게 2가지가 있습니다. 
 
@@ -159,7 +159,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
-<u>**5) 다음 세대 염색체 생성**</u>
+**5) 다음 세대 염색체 생성**
 
 이제 우수 염색체 2개를 선택했으니 이 2개의 부모 염색체를 통해 2개의 자식 염색체를 생성해야 합니다. 자식 염색체는 crossover와 mutation의 과정을 거쳐 생성되게 됩니다. 차례대로 설명해보도록 하겠습니다.
 
@@ -179,7 +179,9 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
     단계 4)와 5)는 다음 세대의 population이 기존에 설정했던 population의 수를 모두 채워질때 까지 반복됩니다. 이 때 일반적으로 이전 세대에서 가장 성능이 좋았던 염색체는 보존하여 다음 세대로 포함시킨다고 합니다.
 
-<u>**6) Stopping criteria 만족 O: 최종 변수 집합 선택 *or* Stopping criteria 만족 X: Step 2부터 다시 진행**</u>
+
+
+**6) Stopping criteria 만족 O: 최종 변수 집합 선택 *or* Stopping criteria 만족 X: Step 2부터 다시 진행**
 
 다음 세대의 population이 구성되면 stopping criteria를 통해 최종 변수 집합을 선택할지 아니면 step2부터 다시 진행할지 결정하여야 합니다. stopping criteria는 보통 목표 성능을 만족하거나 일정 이상의 반복회수가 초과되는 것을 기준으로 합니다.
 
@@ -192,7 +194,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
-### **Performance Metrics**
+### <span style="color:orange;">**Performance Metrics**</span>
 
 지금까지 차원축소에 관한 4가지 기법을 학습하였습니다. 4가지 기법 모두 변수를 선택하기 위하여 각 조합에 대한 모델의 performance를 구하는 과정이 있습니다. 이제부터는 모델의 performace를 구하기 위한 지표에는 어떤 것들이 있는지 살펴보도록 하겠습니다.
 
@@ -222,7 +224,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
-### **Empirical Study & Example in R**
+### <span style="color:orange;">**Empirical Study & Example in R**</span>
 
 이렇게해서 차원축소의 4가지의 기법과 그 기법들을 실행하는데 쓰이는 performance metirc들에 대해서 모두 알아보았습니다. 
 
