@@ -27,7 +27,6 @@ tags: Dimensionality_Reduction
 이제부터는 본격적으로 각 Method에 대하여 알아보도록 하겠습니다.
 
 
-
 **Forward Selection**
 
 다음 그림은 Forward Selection의 절차입니다.
@@ -51,7 +50,6 @@ tags: Dimensionality_Reduction
 이론적으로 이 알고리즘의 최대 계산량은 **N(N+1)/2**입니다.
 
 
-
 **Backward Elimination**
 
 다음 그림은 Backward Elimination의 절차입니다.
@@ -69,7 +67,6 @@ tags: Dimensionality_Reduction
 이 알고리즘도 이론적으로 최대 계산량은 **N(N+1)/2**입니다.
 
 
-
 **Stepwise Selection**
 
 다음 그림은 Stepwise Selection에 대한 절차입니다.
@@ -79,7 +76,6 @@ tags: Dimensionality_Reduction
 이 알고리즘은 Forward Selection과 Backward Elimination의 방식을 둘다 사용합니다. 즉 이전 단계의 조합을 기준으로 Forward Selection과 Backward Elimination을 모두 수행해 본 후 그 중에서 가장 성능이 좋았던 조합을 선택하는 방식입니다. 그렇기때문에 Stepwise Selection에서는 한번 추가(혹은 제거)되었던 변수일지라도 다시 제거(혹은 추가)될 수 있습니다.
 
 이 방식은 앞선 두 방식보다 더 많은 계산량을 필요로 합니다. 하지만 앞선 방식보다 탐색 범위가 넓기 때문에 성능이 좋은 조합을 찾을 확률은 높습니다.
-
 
 
 **Genetic Algorithm**
@@ -103,7 +99,6 @@ tags: Dimensionality_Reduction
 이제 각 단계별로 자세히 알아보도록 하겠습니다.
 
 
-
 **1) 파라미터 설정 및 염색체 초기화**
 
 GA를 실행하기 위해서는 가장 먼저 아래의 Parameter값에 대하여 설정해주어야 합니다.
@@ -125,17 +120,14 @@ crossover와 muation의 개념은 뒤에서 자세히 설명하오니 당황하�
 일반적으로 50:50의 비율로 random하게 0과 1을 할당하여 초기화를 한다고 합니다.
 
 
-
 **2) 각 염색체 선택 변수별 모델학습**
 
 이 단계에서는 각 염색체 선택 변수별 모델을 학습하게 됩니다.
 
 
-
 **3)  각 염색체 적합도 평가**
 
 우리가 설정한 fitness function으로 각 염색체의 성능을 평가하는 단계입니다. 이 때 일반적으로 같은 성능을 가진 염색체의 경우 선택된 변수의 개수가 더 적은 염색체가 더 좋은 염색체라고 판단합니다.
-
 
 
 **4) 우수 염색체 선택**
@@ -156,7 +148,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 논문에서는 "The main reason is that probabilistic optimization is more effective than deterministic optimization in accounting for differences in the scatter of random variables and the resulting differences in the importance of failure modes."라고 말을 합니다. 즉 Deterministic 방법보다 좀 더 넗은 범위에서 우수 염색체를 선택하기 때문에 성능이 우수하였다는 뜻입니다.
 
 하지만 역시 이론적으로 증명된 부분이 아니기 때문에 어떤 데이터와 모델을 사용하느냐에 따라서 결과가 달라질 수 있음을 인지하고 계셔야 할 것입니다.
-
 
 
 **5) 다음 세대 염색체 생성**
@@ -181,11 +172,9 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
-
 **6) Stopping criteria 만족 O: 최종 변수 집합 선택 *or* Stopping criteria 만족 X: Step 2부터 다시 진행**
 
-다음 세대의 population이 구성되면 stopping criteria를 통해 최종 변수 집합을 선택할지 아니면 step2부터 다시 진행할지 결정하여야 합니다. stopping criteria는 보통 목표 성능을 만족하거나 일정 이상의 반복회수가 초과되는 것을 기준으로 합니다.  
-
+다음 세대의 population이 구성되면 stopping criteria를 통해 최종 변수 집합을 선택할지 아니면 step2부터 다시 진행할지 결정하여야 합니다. stopping criteria는 보통 목표 성능을 만족하거나 일정 이상의 반복회수가 초과되는 것을 기준으로 합니다.
 
 
 이렇게해서 GA 알고리즘의 절차에 대해서 모두 학습하였습니다. 마지막으로 한가지 더 말씀드리면 GA 알고리즘의 경우 큰 성능 향상은 초기단계에 이루어지고 뒤로갈수록 그 폭이 줄어들어 아래와 같은 그래프를 그리게 된다고 합니다.
@@ -193,8 +182,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
   ![genetic algorithm performanceì ëí ì´ë¯¸ì§ ê²ìê²°ê³¼](https://www.neuraldesigner.com/images/blog/selection_error.png)
-
-
 
 
 
@@ -225,7 +212,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
 
     **BIC=n*ln(SSE/n)+2(k+2)no^2/SSE-2n^2o^4/SSE^2**
-
 
 
 **Empirical Study & Example in R**
