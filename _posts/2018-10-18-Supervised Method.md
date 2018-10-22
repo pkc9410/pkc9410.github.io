@@ -216,7 +216,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
-
   - **Akaike Inforamtion Criteria (AIC)**
 
     AIC는 SSE를 기반이지만 독립변수의 개수에 비례하여 penalty를 가집니다. 그 식은 다음과 같습니다.
@@ -234,6 +233,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
+
   - **Bayesian Information Criteria(BIC)**
 
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
@@ -242,6 +242,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     $$
     BIC=n\ln{\frac{SSE}{n}}+\frac{2(k+2)n\sigma^2}{SSE}-\frac{2n^2\sigma^4}{SSE^2}
     $$
+
 
 
 
@@ -275,7 +276,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 ### <span style="color:orange;">**Example in R**</span>
 
-이제 마지막으로 각 기법들을 R로 구현해보고 실제로 그 결과들을 확인해보도록 하겠습니다.
+이제 마지막으로 각 기법들을 R을 통해 실습해보도록 하겠습니다.
 
 각 기법들을 적용할 learning algorithm으로는 **회귀분석**을 사용하였습니다. 데이터는 Kaggle 사이트의 **"House Sales in King County, USA"** 데이터를 사용하였습니다. 데이터는 21613개의 object로 구성되어 있습니다.
 
@@ -299,23 +300,21 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 이렇게 1개의 종속변수와 10개의 11개의 독립변수를 사용하였습니다. 1,2,5번 변수의 경우 정수 값을 가지나 집의 option에 관련된 변수로(ex:원룸, 투룸, 단층, 복층) 취급하는 것이 적절하다고 생각되어 명목형 변수로 취급하였고, 8,9번 변수도 정수 값으로 입력되어 있지만 실제 값이 아닌 어떤 상태를 나타내는 값에(ex:bad=1,good=5) 불과하다고 생각되어 명목형 변수로 취급하였습니다. 
 
-이제부터 본격적으로 R code를 살펴보도록 하겠습니다. 각 code에 대해서 line by line으로 설명하도록 하겠습니다.
+이제부터 본격적으로 R code를 살펴보도록 하겠습니다.
 
 
 
 - **Data 불러오기 및 초기 모델 구성**
 
-  '''
-
+  ```
   house = read.csv("kc_house_data.csv")
-
+  
   attach(house)
-
+  
   full = lm(price~factor(bedrooms)+factor(bathrooms)+sqft_living+sqft_lot+factor(floors)+waterfront+view+factor(condition)+factor(grade)+sqft_above+sqft_basement)
-
+  
   null = lm(price~1)
-
-  '''
+  ```
 
   read.csv 함수를 통해 kaggle에서 다운받은 csv 데이터를 불러왔습니다.
 
@@ -327,20 +326,43 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
   R에서는 step 함수를 통해 회귀분석에서의 forward selection, backward elimination, stepwise selection을 진행할 수 있습니다. 함수의 기본적인 구조는 다음과 같습니다.
 
-  '''
-
+  ```
   step(초기상태, direction="forward" or "backward" or "both", scope=list(upper=upper,under=under))
-
-  '''
+  ```
 
   step함수를 이용한 Forward Selection의 R코드는 다음과 같습니다.
 
-  '''
-
+  ```
   step(null, direction = "forward", scope=list(upper=full))
-
-  '''
+  ```
 
   초기상태를 null로 지정하였고, 모델이 변수를 추가할 수 있는 상한선으로 full모델을 지정하였습니다. 또한 Forward Selection이므로 direction을 "forward"로 입력하였습니다.
+
+  ```
+  Step:  AIC=530178.8
+  price ~ factor(grade) + sqft_living + waterfront + factor(bathrooms) + 
+      view + factor(condition) + factor(floors) + factor(bedrooms) + 
+      sqft_lot
+  
+                  Df  Sum of Sq        RSS    AIC
+  + sqft_above     1 4.3055e+12 9.6296e+14 530084
+  + sqft_basement  1 4.3055e+12 9.6296e+14 530084
+  <none>                        9.6727e+14 530179
+  
+  Step:  AIC=530084.4
+  price ~ factor(grade) + sqft_living + waterfront + factor(bathrooms) + 
+      view + factor(condition) + factor(floors) + factor(bedrooms) + 
+      sqft_lot + sqft_above
+  
+         Df Sum of Sq        RSS    AIC
+  <none>              9.6296e+14 530084
+  
+  Call:
+  lm(formula = price ~ factor(grade) + sqft_living + waterfront + 
+      factor(bathrooms) + view + factor(condition) + factor(floors) + 
+      factor(bedrooms) + sqft_lot + sqft_above)
+  ```
+
+
 
 
