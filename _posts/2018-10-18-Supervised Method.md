@@ -213,9 +213,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
-
-
-
   - **Akaike Inforamtion Criteria (AIC)**
 
     AIC는 SSE를 기반이지만 독립변수의 개수에 비례하여 penalty를 가집니다. 그 식은 다음과 같습니다.
@@ -229,11 +226,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
-
-
-
-
-
   - **Bayesian Information Criteria(BIC)**
 
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
@@ -242,10 +234,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     $$
     BIC=n\ln{\frac{SSE}{n}}+\frac{2(k+2)n\sigma^2}{SSE}-\frac{2n^2\sigma^4}{SSE^2}
     $$
-
-
-
-
 
 
 
