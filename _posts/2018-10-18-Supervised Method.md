@@ -216,6 +216,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
     식을 보시면 알 수 있듯이 Adjusted R^2의 경우 독립변수의 k가 증가하여 SSE가 줄어도 분모에 있는 n-k-1식이 감소하기 때문에 SSE가 줄어든 것을 보완합니다.
 
+
   - **Akaike Inforamtion Criteria (AIC)**
 
     AIC는 SSE를 기반이지만 독립변수의 개수에 비례하여 penalty를 가집니다. 그 식은 다음과 같습니다.
@@ -232,6 +233,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     $$
     BIC=n\ln{\frac{SSE}{n}}+\frac{2(k+2)n\sigma^2}{SSE}-\frac{2n^2\sigma^4}{SSE^2}
     $$
+
 
 
 
