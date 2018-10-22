@@ -8,15 +8,11 @@ tags: Dimensionality_Reduction
 
 이 post는 고려대학교 산업경영공학과 DSBA연구실 강필성 교수님의 Business-Analytics강의를 바탕으로 작성되었습니다.
 
-### <span style="color:white;">**Start**</span>
-
 오늘은 차원축소(Dimensionality Reduction)의 방법 중 한 갈래인 Supervised Method방법에 대해서 알아보도록 하겠습니다. 차원축소에 관한 기본적인 내용을 알고싶으신 분은 [여기](https://pkc9410.github.io/2018/10/18/Dimensionality-Reduction.html)를 클릭해주시면 감사하겠습니다.
 
 
 
 오늘 소개해드릴 차원축소의 Supervised Method는 바로 **Forward Selection**, **Backward Elimination**, **Stepwise Selection**, 그리고 **Genetic Algorithm**입니다.
-
-  
 
 위의 방법론들을 소개하기에 앞서 Exhaustive Search라는 방법론을 소개해드리겠습니다. 거창하게 말했지만 사실 이 방법론은 단순히 가능한 모든 독립변수의 조합을 전부 탐색해보는 방법을 말합니다. 따라서 변수의 개수가 N개라면 총 2^N-1의 조합을 탐색해야 합니다. 
 
@@ -28,7 +24,7 @@ tags: Dimensionality_Reduction
 
 이제부터는 본격적으로 각 Method에 대하여 알아보도록 하겠습니다.
 
-<span style="color:white;">**Start**</span>
+<span style="color:white;">Forward Selection</span>
 
 ### <span style="color:orange;">**Forward Selection**</span>
 
@@ -217,6 +213,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
+
   - **Akaike Inforamtion Criteria (AIC)**
 
     AIC는 SSE를 기반이지만 독립변수의 개수에 비례하여 penalty를 가집니다. 그 식은 다음과 같습니다.
@@ -225,6 +222,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     $$
     AIC=n\ln(\frac{SSE}{n})+2k
     $$
+
 
 
 
