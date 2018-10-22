@@ -6,6 +6,8 @@ tags: Dimensionality_Reduction
 
 ---
 
+<span style="color:white;">**Start**</span>
+
 이 post는 고려대학교 산업경영공학과 DSBA연구실 강필성 교수님의 Business-Analytics강의를 바탕으로 작성되었습니다.
 
 오늘은 차원축소(Dimensionality Reduction)의 방법 중 한 갈래인 Supervised Method방법에 대해서 알아보도록 하겠습니다. 차원축소에 관한 기본적인 내용을 알고싶으신 분은 [여기](https://pkc9410.github.io/2018/10/18/Dimensionality-Reduction.html)를 클릭해주시면 감사하겠습니다.
@@ -26,7 +28,7 @@ tags: Dimensionality_Reduction
 
 이제부터는 본격적으로 각 Method에 대하여 알아보도록 하겠습니다.
 
-### <span style="color:white;">**Forward Selection**</span>
+### <span style="color:white;">**Start**</span>
 
 ### <span style="color:orange;">**Forward Selection**</span>
 
@@ -175,9 +177,10 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
     mutation은 각 염색체 cell별로 일어납니다. 일정 확률로 각 염색체 cell이 1->0 혹은 0->1로 바뀌게 됩니다. 그 확률을 너무 높게 설정하면 부모 염색체로부터 형질을 물려받는 의미가 없어지기 때문에 보편적으로 0.01의 확률로 mutation이 일어나도록 설정하는 것이 좋다고 합니다.
 
-    이렇게 crossover와 mutation이 끝나면 총 2개의 자식 염색체가 생성됩니다. 생성된 자식 염색체는 다음 세대의 구성원이 됩니다.
 
-    단계 4)와 5)는 다음 세대의 population이 기존에 설정했던 population의 수를 모두 채워질때 까지 반복됩니다. 이 때 일반적으로 이전 세대에서 가장 성능이 좋았던 염색체는 보존하여 다음 세대로 포함시킨다고 합니다.
+이렇게 crossover와 mutation이 끝나면 총 2개의 자식 염색체가 생성됩니다. 생성된 자식 염색체는 다음 세대의 구성원이 됩니다.
+
+단계 4)와 5)는 다음 세대의 population이 기존에 설정했던 population의 수를 모두 채워질때 까지 반복됩니다. 이 때 일반적으로 이전 세대에서 가장 성능이 좋았던 염색체는 보존하여 다음 세대로 포함시킨다고 합니다.
 
 <span style="color:white;">**Forward Selection**</span>
 
@@ -198,10 +201,16 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 지금까지 차원축소에 관한 4가지 기법을 학습하였습니다. 4가지 기법 모두 변수를 선택하기 위하여 각 조합에 대한 모델의 performance를 구하는 과정이 있습니다. 이제부터는 모델의 performace를 구하기 위한 지표에는 어떤 것들이 있는지 살펴보도록 하겠습니다.
 
-  - **Adjusted R^2**
+  - **Adjusted R-squared**
+    $$
+    Simple R^2 = 1-\frac{SSE}{SST}=\frac{SSR}{SST}
+    $$
 
-    **simple R^2 = 1-SSE/SST = SSR/SST**
-    **Adjusted R^2 = 1-(n-1)/(n-k-1)*SSE/SST**
+    $$
+    Adjusted R^2=1-\frac{n-1}{n-k-1}\frac{SSE}{SST}
+    $$
+
+
 
     기존의 R^2의 경우 독립변수의 개수가 증가하면 증가하는 함수이기 때문에 차원축소의 지표로 사용하기에는 부적절합니다. 그렇기 때문에 독립변수의 개수를 고려할 수 있도록 변형한 Adjusted R^2을 사용하는 것이 좋습니다.
 
@@ -210,17 +219,22 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
   - **Akaike Inforamtion Criteria (AIC)**
 
     AIC는 SSE를 기반이지만 독립변수의 개수에 비례하여 penalty를 가집니다. 그 식은 다음과 같습니다.
-
-    **AIC = n*ln(SSE/n)+2k**
-
+    $$
+    AIC=n\ln(\frac{SSE}{n})+2k
+    $$
     AIC의 경우 그 값이 낮을수록 적합도가 높은 모형입니다.
+
 
 
   - **Bayesian Information Criteria(BIC)**
 
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
+    $$
+    BIC=n\ln{\frac{SSE}{n}}+\frac{2(k+2)n\sigma^2}{SSE}-\frac{2n^2\sigma^4}{SSE^2}
+    $$
 
-    **BIC=n*ln(SSE/n)+2(k+2)no^2/SSE-2n^2o^4/SSE^2**
+
+
 
 <span style="color:white;">**Forward Selection**</span>
 
