@@ -196,10 +196,6 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 ### <span style="color:orange;">**Performance Metrics**</span>
 
 지금까지 차원축소에 관한 4가지 기법을 학습하였습니다. 4가지 기법 모두 변수를 선택하기 위하여 각 조합에 대한 모델의 performance를 구하는 과정이 있습니다. 이제부터는 모델의 performace를 구하기 위한 지표에는 어떤 것들이 있는지 살펴보도록 하겠습니다.
-$$
-A^2
-$$
-
 
   - **Adjusted R-squared**
 
@@ -217,8 +213,6 @@ $$
 
 
 
-
-
   - **Akaike Inforamtion Criteria (AIC)**
 
     AIC는 SSE를 기반이지만 독립변수의 개수에 비례하여 penalty를 가집니다. 그 식은 다음과 같습니다.
@@ -231,9 +225,6 @@ $$
 
 
 
-
-
-
   - **Bayesian Information Criteria(BIC)**
 
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
@@ -242,8 +233,6 @@ $$
     $$
     BIC=n\ln{\frac{SSE}{n}}+\frac{2(k+2)n\sigma^2}{SSE}-\frac{2n^2\sigma^4}{SSE^2}
     $$
-
-
 
 
 
