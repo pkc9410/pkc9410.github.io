@@ -202,6 +202,8 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     단순 R-squared의 경우 독립변수의 개수가 증가하면 증가하는 함수이기 때문에 차원축소의 지표로 사용하기에는 부적절합니다. 그렇기 때문에 독립변수의 개수를 고려할 수 있도록 변형한 Adjusted R-squared을 사용하는 것이 좋습니다.
 
     식을 보시면 알 수 있듯이 Adjusted R-squared의 경우 독립변수의 k가 증가하여 SSE가 줄어도 분모에 있는 n-k-1식이 감소하기 때문에 SSE가 줄어든 것을 보완합니다.
+
+
     $$
     Simple R^2 = 1-\frac{SSE}{SST}=\frac{SSR}{SST}
     $$
@@ -209,6 +211,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     $$
     Adjusted R^2=1-\frac{n-1}{n-k-1}\frac{SSE}{SST}
     $$
+
 
 
 
@@ -226,6 +229,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 
 
+
   - **Bayesian Information Criteria(BIC)**
 
     BIC는 AIC가 다른 표본을 사용할 경우 공식모형이 달라서 비교가 불가능하다는 단점을 보완하기 위해 표본 크기를 반영한 지표입니다. 따라서 BIC를 사용하면 서로 다른 표본으로도 경쟁모형의 비교가 가능합니다.
@@ -234,6 +238,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     $$
     BIC=n\ln{\frac{SSE}{n}}+\frac{2(k+2)n\sigma^2}{SSE}-\frac{2n^2\sigma^4}{SSE^2}
     $$
+
 
 
 
