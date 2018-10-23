@@ -6,6 +6,12 @@ tags: Dimensionality_Reduction
 
 ---
 
+{% if page.mathjax %}
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+{% endif %}
+
 이 post는 고려대학교 산업경영공학과 DSBA연구실 강필성 교수님의 Business-Analytics강의를 바탕으로 작성되었습니다.
 
 오늘은 차원축소(Dimensionality Reduction)의 방법 중 한 갈래인 Supervised Method방법에 대해서 알아보도록 하겠습니다. 차원축소에 관한 기본적인 내용을 알고싶으신 분은 [여기](https://pkc9410.github.io/2018/10/18/Dimensionality-Reduction.html)를 클릭해주시면 감사하겠습니다.
@@ -197,6 +203,9 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
 
 지금까지 차원축소에 관한 4가지 기법을 학습하였습니다. 4가지 기법 모두 변수를 선택하기 위하여 각 조합에 대한 모델의 performance를 구하는 과정이 있습니다. 이제부터는 모델의 performace를 구하기 위한 지표에는 어떤 것들이 있는지 살펴보도록 하겠습니다.
 
+
+
+
   - **Adjusted R-squared**
 
     단순 R-squared의 경우 독립변수의 개수가 증가하면 SSE가 감소하여 함수 값도 증가하기 때문에 차원축소의 지표로 사용하기에는 부적절합니다. 그렇기 때문에 독립변수의 개수를 고려할 수 있도록 변형한 Adjusted R-squared을 사용하는 것이 좋습니다.
@@ -204,7 +213,7 @@ Deterministic한 방법과 Probabilistic한 방법 중 이론적으로 어떤 �
     식을 보시면 알 수 있듯이 Adjusted R-squared의 경우 독립변수의 k가 증가하여 SSE가 줄어도 분모에 있는 n-k-1식이 감소하기 때문에 SSE가 줄어든 것을 보완합니다.
 
 $$
-Simple R^2 = 1-\frac{SSE}{SST}=\frac{SSR}{SST}
+Simple R^2 = 1-\frac{SSE}{SST}=\frac{SSR}{SST}
 $$
 
 $$
