@@ -320,7 +320,7 @@ $$
 
 <span style="color:white;">**Forward Selection**</span>
 
-### <span style="color:orange;">**Example in R**</span>
+### <span style="color:orange;">**Example in python**</span>
 
 이제 마지막으로 각 기법들을 R을 통해 실습해보도록 하겠습니다.
 
